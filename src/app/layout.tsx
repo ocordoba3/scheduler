@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
+import { Roboto_Condensed } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/components/providers/auth-provider";
 import { QueryProvider } from "@/components/providers/query-provider";
 import "@/app/globals.css";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const robotoCondensed = Roboto_Condensed({
+  variable: "--font-roboto-condensed",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -24,9 +25,9 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${geistMono.variable} h-full font-mono antialiased`}
+      className={`${robotoCondensed.variable} h-full font-sans antialiased`}
     >
-      <body className="min-h-full flex flex-col font-mono">
+      <body className="min-h-full flex flex-col font-sans">
         <AuthProvider>
           <QueryProvider>
             {children}

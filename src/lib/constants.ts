@@ -7,8 +7,8 @@ export const EVENT_STATUS_LABELS: Record<EventStatus, string> = {
 };
 
 export const EVENT_STATUS_COLORS: Record<EventStatus, string> = {
-  PENDING: "#f59e0b",
-  CONFIRMED: "#22c55e",
+  PENDING: "#ffcc66",
+  CONFIRMED: "#4a90e2",
   CANCELLED: "#94a3b8",
 };
 
