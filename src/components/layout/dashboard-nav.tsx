@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useCalendarSettings } from "@/hooks/use-scheduler";
 import { toast } from "sonner";
+import SchedulerHeader from "./scheduler-header";
 
 const navItems = [
   { href: "/dashboard", label: "Calendario", icon: Calendar },
@@ -28,13 +29,10 @@ export function DashboardNav() {
   };
 
   return (
-    <header className="border-b bg-card">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
+    <SchedulerHeader>
+      <div className="flex w-full items-center justify-between gap-4 px-4 py-3">
         <div className="flex items-center gap-6">
-          <Link href="/dashboard" className="font-semibold">
-            Scheduler
-          </Link>
-          <nav className="hidden items-center gap-1 md:flex">
+          <nav className="items-center gap-1 flex">
             {navItems.map((item) => {
               const Icon = item.icon;
               const active = pathname === item.href;
@@ -50,7 +48,7 @@ export function DashboardNav() {
                   )}
                 >
                   <Icon className="h-4 w-4" />
-                  {item.label}
+                  <span className="hidden md:inline">{item.label}</span>
                 </Link>
               );
             })}
@@ -59,8 +57,10 @@ export function DashboardNav() {
 
         <div className="flex items-center gap-2">
           <Button variant="outline" size="sm" onClick={copyBookingLink}>
-            <Link2 className="mr-2 h-4 w-4" />
-            Copiar enlace
+            <Link2 className="h-4 w-4" />
+            <span className="hidden ml-0 md:ml-2 md:inline">
+              Compartir enlace
+            </span>
           </Button>
           <span className="hidden text-sm text-muted-foreground sm:inline">
             {session?.user?.name ?? session?.user?.email}
@@ -74,6 +74,6 @@ export function DashboardNav() {
           </Button>
         </div>
       </div>
-    </header>
+    </SchedulerHeader>
   );
 }

@@ -76,8 +76,12 @@ export function EventNotesChat({
                 {note.content}
               </div>
               <span className="text-xs text-muted-foreground">
-                {note.authorName ?? (note.authorType === "OWNER" ? "Dueño" : "Invitado")}{" "}
-                · {format(new Date(note.createdAt), "d MMM HH:mm", { locale: es })}
+                {note.authorName ??
+                  (note.authorType === "OWNER" ? "Dueño" : "Invitado")}{" "}
+                ·{" "}
+                {format(new Date(note.createdAt), "d MMM HH:mm", {
+                  locale: es,
+                })}
               </span>
             </div>
           ))}

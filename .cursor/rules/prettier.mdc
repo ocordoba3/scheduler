@@ -1,0 +1,25 @@
+---
+description: Convenciones de Prettier al editar o crear código en el proyecto
+alwaysApply: true
+---
+
+# Prettier
+
+Al escribir o editar código en este repo, respeta la configuración de `.prettierrc`:
+
+- `semi: true` — siempre punto y coma
+- `singleQuote: false` — comillas dobles
+- `trailingComma: "es5"` — comas finales donde ES5 lo permita
+- `printWidth: 80` — máximo 80 caracteres por línea
+- `tabWidth: 2` — 2 espacios, sin tabs
+- `arrowParens: "always"` — paréntesis en flechas de un argumento: `(x) => x`
+- `endOfLine: "lf"`
+
+## Flujo
+
+1. No reformatees archivos completos a menos que el usuario lo pida o el cambio lo requiera.
+2. El código nuevo o editado debe quedar alineado con Prettier.
+3. Para formatear el proyecto: `npm run format`
+4. Para verificar sin escribir: `npm run format:check`
+
+No pelees con ESLint: `eslint-config-prettier` desactiva reglas de estilo que chocan con Prettier.

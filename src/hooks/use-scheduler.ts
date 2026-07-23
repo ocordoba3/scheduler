@@ -101,13 +101,7 @@ export function useCreateEvent() {
 export function useUpdateEvent() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({
-      id,
-      data,
-    }: {
-      id: string;
-      data: Record<string, unknown>;
-    }) =>
+    mutationFn: ({ id, data }: { id: string; data: Record<string, unknown> }) =>
       fetchJson<EventWithRelations>(`/api/events/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },

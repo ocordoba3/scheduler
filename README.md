@@ -50,13 +50,13 @@ cp .env.example .env
 
 Variables necesarias:
 
-| Variable | Descripción |
-|----------|-------------|
-| `DATABASE_URL` | Conexión a PostgreSQL (ver sección de base de datos) |
-| `AUTH_SECRET` | Secreto para firmar sesiones de NextAuth |
-| `AUTH_URL` | URL de la app (`http://localhost:3000` en local) |
-| `GOOGLE_CLIENT_ID` | Opcional — solo para login con Google |
-| `GOOGLE_CLIENT_SECRET` | Opcional — solo para login con Google |
+| Variable               | Descripción                                          |
+| ---------------------- | ---------------------------------------------------- |
+| `DATABASE_URL`         | Conexión a PostgreSQL (ver sección de base de datos) |
+| `AUTH_SECRET`          | Secreto para firmar sesiones de NextAuth             |
+| `AUTH_URL`             | URL de la app (`http://localhost:3000` en local)     |
+| `GOOGLE_CLIENT_ID`     | Opcional — solo para login con Google                |
+| `GOOGLE_CLIENT_SECRET` | Opcional — solo para login con Google                |
 
 #### Generar `AUTH_SECRET`
 
@@ -97,10 +97,10 @@ npm run db:up
 
 Esto inicia Postgres 16 en el puerto `5432` con:
 
-| Campo | Valor |
-|-------|-------|
-| Usuario | `postgres` |
-| Contraseña | `postgres` |
+| Campo         | Valor       |
+| ------------- | ----------- |
+| Usuario       | `postgres`  |
+| Contraseña    | `postgres`  |
 | Base de datos | `scheduler` |
 
 **c) Configura `.env`**
@@ -189,36 +189,36 @@ npm run start
 
 ## Scripts útiles
 
-| Comando | Descripción |
-|---------|-------------|
-| `npm run dev` | Servidor de desarrollo |
-| `npm run build` | Genera Prisma Client y compila Next.js |
-| `npm run start` | Sirve el build de producción |
-| `npm run lint` | ESLint |
-| `npm run db:up` | Levanta PostgreSQL con Docker |
-| `npm run db:down` | Detiene PostgreSQL |
-| `npm run db:prisma-dev` | Levanta Postgres embebido (sin Docker) |
-| `npm run db:prisma-dev:stop` | Detiene Prisma Dev |
-| `npm run db:prisma-dev:restart` | Reinicia Prisma Dev |
-| `npm run db:migrate` | Crea/aplica migraciones en desarrollo |
-| `npm run db:migrate:deploy` | Aplica migraciones existentes (recomendado) |
-| `npm run db:push` | Sincroniza schema sin migración (evitar con Prisma Dev) |
-| `npm run db:studio` | Abre Prisma Studio |
-| `npm run setup:local` | `db:up` + `db:migrate:deploy` |
+| Comando                         | Descripción                                             |
+| ------------------------------- | ------------------------------------------------------- |
+| `npm run dev`                   | Servidor de desarrollo                                  |
+| `npm run build`                 | Genera Prisma Client y compila Next.js                  |
+| `npm run start`                 | Sirve el build de producción                            |
+| `npm run lint`                  | ESLint                                                  |
+| `npm run db:up`                 | Levanta PostgreSQL con Docker                           |
+| `npm run db:down`               | Detiene PostgreSQL                                      |
+| `npm run db:prisma-dev`         | Levanta Postgres embebido (sin Docker)                  |
+| `npm run db:prisma-dev:stop`    | Detiene Prisma Dev                                      |
+| `npm run db:prisma-dev:restart` | Reinicia Prisma Dev                                     |
+| `npm run db:migrate`            | Crea/aplica migraciones en desarrollo                   |
+| `npm run db:migrate:deploy`     | Aplica migraciones existentes (recomendado)             |
+| `npm run db:push`               | Sincroniza schema sin migración (evitar con Prisma Dev) |
+| `npm run db:studio`             | Abre Prisma Studio                                      |
+| `npm run setup:local`           | `db:up` + `db:migrate:deploy`                           |
 
 ---
 
 ## Rutas
 
-| Ruta | Descripción |
-|------|-------------|
-| `/` | Landing |
-| `/register` | Crear cuenta |
-| `/login` | Iniciar sesión |
-| `/dashboard` | Calendario del dueño (protegido) |
-| `/dashboard/availability` | Configurar horarios |
-| `/dashboard/settings` | Título, slots, zona horaria |
-| `/book/[calendarId]` | Reserva pública |
+| Ruta                      | Descripción                      |
+| ------------------------- | -------------------------------- |
+| `/`                       | Landing                          |
+| `/register`               | Crear cuenta                     |
+| `/login`                  | Iniciar sesión                   |
+| `/dashboard`              | Calendario del dueño (protegido) |
+| `/dashboard/availability` | Configurar horarios              |
+| `/dashboard/settings`     | Título, slots, zona horaria      |
+| `/book/[calendarId]`      | Reserva pública                  |
 
 ---
 

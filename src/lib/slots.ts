@@ -69,8 +69,7 @@ export function generateAvailableSlots(
           overlaps(slotStart, slotEnd, event.startTime, event.endTime)
         );
 
-        const isInRange =
-          !isBefore(slotEnd, from) && !isAfter(slotStart, to);
+        const isInRange = !isBefore(slotEnd, from) && !isAfter(slotStart, to);
 
         if (!isOccupied && isInRange && isAfter(slotStart, new Date())) {
           slots.push({ start: slotStart, end: slotEnd });

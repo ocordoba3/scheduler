@@ -4,10 +4,7 @@ import { use, useState } from "react";
 import { format, addDays } from "date-fns";
 import { es } from "date-fns/locale";
 import { formatInTimeZone } from "date-fns-tz";
-import {
-  usePublicCalendar,
-  useCreateBooking,
-} from "@/hooks/use-scheduler";
+import { usePublicCalendar, useCreateBooking } from "@/hooks/use-scheduler";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -47,15 +44,13 @@ export default function BookPage({
   });
 
   const from = selectedDate?.toISOString();
-  const to = selectedDate
-    ? addDays(selectedDate, 14).toISOString()
-    : undefined;
+  const to = selectedDate ? addDays(selectedDate, 14).toISOString() : undefined;
 
-  const { data: calendar, isLoading, error } = usePublicCalendar(
-    calendarId,
-    from,
-    to
-  );
+  const {
+    data: calendar,
+    isLoading,
+    error,
+  } = usePublicCalendar(calendarId, from, to);
   const createBooking = useCreateBooking();
 
   const slotsForDay =
@@ -116,8 +111,9 @@ export default function BookPage({
         <CheckCircle2 className="h-16 w-16 text-green-500" />
         <h1 className="text-2xl font-bold">¡Reserva confirmada!</h1>
         <p className="text-muted-foreground">
-          Tu solicitud fue enviada a {calendar.ownerName ?? "el dueño del calendario"}.
-          Recibirás confirmación pronto.
+          Tu solicitud fue enviada a{" "}
+          {calendar.ownerName ?? "el dueño del calendario"}. Recibirás
+          confirmación pronto.
         </p>
       </div>
     );
@@ -148,7 +144,9 @@ export default function BookPage({
               mode="single"
               selected={selectedDate}
               onSelect={setSelectedDate}
-              disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
+              disabled={(date) =>
+                date < new Date(new Date().setHours(0, 0, 0, 0))
+              }
             />
           </CardContent>
         </Card>
@@ -256,7 +254,8 @@ export default function BookPage({
               <div className="flex items-center gap-2 rounded-md border border-dashed p-3 text-sm text-muted-foreground">
                 <CreditCard className="h-4 w-4 shrink-0" />
                 <span>
-                  Pagos en línea habilitados — depósito o pago total al confirmar
+                  Pagos en línea habilitados — depósito o pago total al
+                  confirmar
                 </span>
                 <Badge variant="secondary">Próximamente</Badge>
               </div>

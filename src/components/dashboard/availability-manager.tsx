@@ -44,7 +44,11 @@ export function AvailabilityManager() {
     setLocalRules(localRules.filter((_, i) => i !== index));
   };
 
-  const updateRule = (index: number, field: keyof RuleForm, value: string | number) => {
+  const updateRule = (
+    index: number,
+    field: keyof RuleForm,
+    value: string | number
+  ) => {
     const updated = [...localRules];
     updated[index] = { ...updated[index], [field]: value };
     setLocalRules(updated);
@@ -123,9 +127,7 @@ export function AvailabilityManager() {
                 <Input
                   type="time"
                   value={rule.endTime}
-                  onChange={(e) =>
-                    updateRule(index, "endTime", e.target.value)
-                  }
+                  onChange={(e) => updateRule(index, "endTime", e.target.value)}
                 />
               </div>
               <Button

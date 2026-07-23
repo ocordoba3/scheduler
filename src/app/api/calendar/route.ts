@@ -7,16 +7,14 @@ import { prisma } from "@/lib/prisma";
 import { calendarSettingsSchema } from "@/lib/validations";
 import { NextRequest, NextResponse } from "next/server";
 
-function serializeCalendar(
-  calendar: {
-    id: string;
-    title: string;
-    description: string | null;
-    slotDuration: number;
-    paymentsEnabled: boolean;
-    user: { timezone: string; name: string | null };
-  }
-) {
+function serializeCalendar(calendar: {
+  id: string;
+  title: string;
+  description: string | null;
+  slotDuration: number;
+  paymentsEnabled: boolean;
+  user: { timezone: string; name: string | null };
+}) {
   return {
     id: calendar.id,
     title: calendar.title,

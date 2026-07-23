@@ -2,26 +2,24 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Calendar, Clock, Link2, Shield } from "lucide-react";
+import SchedulerHeader from "@/components/layout/scheduler-header";
 
 export default function HomePage() {
   return (
     <div className="flex flex-1 flex-col">
-      <header className="border-b">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-          <span className="text-lg font-semibold">Scheduler</span>
-          <div className="flex gap-2">
-            <Link
-              href="/login"
-              className={cn(buttonVariants({ variant: "ghost" }))}
-            >
-              Iniciar sesión
-            </Link>
-            <Link href="/register" className={cn(buttonVariants())}>
-              Crear cuenta
-            </Link>
-          </div>
+      <SchedulerHeader>
+        <div className="hidden md:flex gap-2">
+          <Link href="/register" className={cn(buttonVariants())}>
+            Crear cuenta
+          </Link>
+          <Link
+            href="/login"
+            className={cn(buttonVariants({ variant: "outline" }))}
+          >
+            Iniciar sesión
+          </Link>
         </div>
-      </header>
+      </SchedulerHeader>
 
       <main className="flex-1">
         <section className="mx-auto max-w-6xl px-4 py-20 text-center">
@@ -30,20 +28,20 @@ export default function HomePage() {
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
             Crea tu calendario, define tu disponibilidad y comparte un enlace
-            para que cualquiera pueda reservar — sin necesidad de que se registren.
+            para que cualquiera pueda reservar — sin necesidad de registro.
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <Link
               href="/register"
               className={cn(buttonVariants({ size: "lg" }))}
             >
-              Empezar gratis
+              Empieza ahora
             </Link>
             <Link
               href="/login"
               className={cn(buttonVariants({ size: "lg", variant: "outline" }))}
             >
-              Ver mi calendario
+              Mi calendario
             </Link>
           </div>
         </section>
@@ -54,12 +52,12 @@ export default function HomePage() {
               {
                 icon: Calendar,
                 title: "Vista completa",
-                desc: "Mes, semana y día con CRUD de eventos",
+                desc: "Mes, semana y día con gestión de eventos completa",
               },
               {
                 icon: Link2,
                 title: "Enlace público",
-                desc: "Comparte /book/[id] sin login para visitantes",
+                desc: "Comparte un enlace público para que cualquiera pueda reservar",
               },
               {
                 icon: Clock,
@@ -68,8 +66,8 @@ export default function HomePage() {
               },
               {
                 icon: Shield,
-                title: "Pagos (pronto)",
-                desc: "Placeholder listo para depósito o pago total",
+                title: "Pagos (próximamente)",
+                desc: "Opción para depósito o pago total",
               },
             ].map((feature) => (
               <div key={feature.title} className="space-y-2 text-center">

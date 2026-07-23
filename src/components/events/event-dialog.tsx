@@ -21,10 +21,7 @@ import {
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { CalendarEvent } from "@/lib/calendar-localizer";
-import {
-  EVENT_STATUS_LABELS,
-  RECURRENCE_LABELS,
-} from "@/lib/constants";
+import { EVENT_STATUS_LABELS, RECURRENCE_LABELS } from "@/lib/constants";
 import {
   useCreateEvent,
   useDeleteEvent,
@@ -153,7 +150,11 @@ export function EventDialog({
                 : "Detalle del evento"}
             {event && (
               <Badge variant="secondary">
-                {EVENT_STATUS_LABELS[event.status as keyof typeof EVENT_STATUS_LABELS]}
+                {
+                  EVENT_STATUS_LABELS[
+                    event.status as keyof typeof EVENT_STATUS_LABELS
+                  ]
+                }
               </Badge>
             )}
           </DialogTitle>
@@ -202,9 +203,7 @@ export function EventDialog({
                 type="datetime-local"
                 value={form.endTime}
                 disabled={isView}
-                onChange={(e) =>
-                  setForm({ ...form, endTime: e.target.value })
-                }
+                onChange={(e) => setForm({ ...form, endTime: e.target.value })}
               />
             </div>
           </div>
@@ -256,9 +255,7 @@ export function EventDialog({
               id="guestName"
               value={form.guestName}
               disabled={isView}
-              onChange={(e) =>
-                setForm({ ...form, guestName: e.target.value })
-              }
+              onChange={(e) => setForm({ ...form, guestName: e.target.value })}
             />
           </div>
 

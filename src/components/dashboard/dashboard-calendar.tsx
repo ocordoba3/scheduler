@@ -2,9 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { addMonths, endOfMonth, startOfMonth, subMonths } from "date-fns";
-import {
-  SchedulerCalendar,
-} from "@/components/calendar/scheduler-calendar";
+import { SchedulerCalendar } from "@/components/calendar/scheduler-calendar";
 import { EventDialog } from "@/components/events/event-dialog";
 import { CalendarEvent } from "@/lib/calendar-localizer";
 import { useEvents } from "@/hooks/use-scheduler";
@@ -24,7 +22,9 @@ export function DashboardCalendar() {
   const { data: events = [], isLoading } = useEvents(range.from, range.to);
 
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(
+    null
+  );
   const [selectedSlot, setSelectedSlot] = useState<{
     start: Date;
     end: Date;

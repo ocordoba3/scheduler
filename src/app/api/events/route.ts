@@ -58,9 +58,7 @@ export async function POST(request: NextRequest) {
         endTime: new Date(data.endTime),
         status: data.status ?? "PENDING",
         recurrence: data.recurrence ?? "NONE",
-        recurrenceEnd: data.recurrenceEnd
-          ? new Date(data.recurrenceEnd)
-          : null,
+        recurrenceEnd: data.recurrenceEnd ? new Date(data.recurrenceEnd) : null,
         guestName: data.guestName,
         guestEmail: data.guestEmail || null,
         guestPhone: data.guestPhone,

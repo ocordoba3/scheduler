@@ -78,12 +78,18 @@ export async function PUT(request: NextRequest) {
         where: { calendarId: calendar.id },
       }),
       prisma.availabilityRule.createMany({
-        data: rules.map((rule: { dayOfWeek: number; startTime: string; endTime: string }) => ({
-          calendarId: calendar.id,
-          dayOfWeek: rule.dayOfWeek,
-          startTime: rule.startTime,
-          endTime: rule.endTime,
-        })),
+        data: rules.map(
+          (rule: {
+            dayOfWeek: number;
+            startTime: string;
+            endTime: string;
+          }) => ({
+            calendarId: calendar.id,
+            dayOfWeek: rule.dayOfWeek,
+            startTime: rule.startTime,
+            endTime: rule.endTime,
+          })
+        ),
       }),
     ]);
 

@@ -1,4 +1,8 @@
-import { badRequest, getAuthenticatedCalendar, unauthorized } from "@/lib/api-helpers";
+import {
+  badRequest,
+  getAuthenticatedCalendar,
+  unauthorized,
+} from "@/lib/api-helpers";
 import { createPayment } from "@/lib/payments";
 import { NextResponse } from "next/server";
 

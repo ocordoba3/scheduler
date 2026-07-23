@@ -1,0 +1,25 @@
+# Dependencies
+node_modules
+
+# Build / Next.js
+.next
+out
+build
+dist
+
+# Generated
+src/generated
+coverage
+
+# Lock / env
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+.env
+.env.*
+
+# Misc
+*.min.js
+*.min.css
+public
+prisma/migrations

@@ -55,7 +55,9 @@ export async function PATCH(request: NextRequest, context: RouteContext) {
       where: { id },
       data: {
         ...(data.title !== undefined && { title: data.title }),
-        ...(data.description !== undefined && { description: data.description }),
+        ...(data.description !== undefined && {
+          description: data.description,
+        }),
         ...(data.startTime !== undefined && {
           startTime: new Date(data.startTime),
         }),
